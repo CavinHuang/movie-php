@@ -155,20 +155,20 @@ $(document).ready(function(){
 	    }
 
 	    TBUI.gallerybox_init = function(items){
-	        TBUI.bd.append('\
-	            <div class="gallerybox">\
-	                <div class="glide">\
-	                    <div class="glide__arrows">\
-	                        <button class="glide__arrow prev" data-glide-dir="<"><i class="fa">&#xe610;</i></button>\
-	                        <button class="glide__arrow next" data-glide-dir=">"><i class="fa">&#xe603;</i></button>\
-	                    </div>\
-	                    <div class="glide__wrapper">\
-	                        <ul class="glide__track">'+ items +'</ul>\
-	                    </div>\
-	                    <div class="glide__bullets"></div>\
-	                </div>\
-	                <div class="gallerybox-close" onclick="javascript:TBUI.gallerybox_close();"><i class="fa">&#xe606;</i></div>\
-	            </div>\
+	        TBUI.bd.append('
+	            +'<div class="gallerybox">'
+	                +'<div class="glide">'
+	                    +'<div class="glide__arrows">'
+	                        +'<button class="glide__arrow prev" data-glide-dir="<"><i class="fa">&#xe610;</i></button>'
+	                        +'<button class="glide__arrow next" data-glide-dir=">"><i class="fa">&#xe603;</i></button>'
+	                    +'</div>'
+	                    +'<div class="glide__wrapper">'
+	                        +'<ul class="glide__track">'+ items +'</ul>'
+	                    +'</div>'
+	                    +'<div class="glide__bullets"></div>'
+	                +'</div>'
+	                +'<div class="gallerybox-close" onclick="javascript:TBUI.gallerybox_close();"><i class="fa">&#xe606;</i></div>'
+	            +'</div>'
 	        ')
 	    }
 
@@ -493,7 +493,7 @@ $(document).ready(function(){
 
 	    if( dom.hasClass('actived') ) return alert('浣犲凡璧烇紒')
 
-	    if ( !pid || !/^\d{1,}$/.test(pid) ) return;
+	    if ( !pid || !/^d{1,}$/.test(pid) ) return;
 	    
         var likes = $.cookie('likes') || ''
         if( $.inArray(pid, likes.split('.'))!==-1 ) return alert('浣犲凡璧烇紒')
