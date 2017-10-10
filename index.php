@@ -36,7 +36,7 @@ include ('./inc/aik.config.php');
 <div class="s-tab-main">
 <ul class="list g-clear">
 <?php 
-        include './data/dyjx.php';
+        include './data/dyjx.php';		// print_r($imgarr[1]);
        foreach ($namearr[1] as $key => $value)
        {   
            $gul=$yuming.$listarr[1][$key];//取出播放链接
@@ -44,7 +44,7 @@ include ('./inc/aik.config.php');
            $guq=$listarr[1][$key];
            $_GET['id']=$gul;
            //echo $guq;
-           $zimg=$imgarr[1][$key];//取出图片链接
+           $zimg=$imgarr[1][$key + 1];//取出图片链接
            $zname=$namearr[1][$key];//取出影片名字
 		   $fname=$fnamearr[1][$key];//取出影片评分
 		   $nname=$nnamearr[1][$key];//取出影片年份
@@ -85,7 +85,7 @@ include ('./inc/aik.config.php');
            $guq=$listarr[1][$key];
            $_GET['id']=$gul;
            //echo $guq;
-           $zimg=$imgarr[1][$key];//取出图片链接
+           $zimg=$imgarr[1][$key+1];//取出图片链接
            $zname=$namearr[1][$key];//取出影片名字
 		   $nname=$nnamearr[1][$key];//取出影片年份
            $zstar=$stararr[1][$key];

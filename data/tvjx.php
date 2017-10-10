@@ -17,9 +17,7 @@ $vname='#<span class="s1">(.*?)</span>#';//取出电影的名字
 $vlist='#<a class="js-tongjic" href="(.*?)">#';//取出电影的详情列表
 $vstar='# <p class="star">(.*?)</p>#';//取出电影的主演
 $nname='#<span class="hint">(.*?)</span>#';//取出电影的年份
-$vimg='#<div class="cover g-playicon">
-                                <img src="(.*?)">
-#';//取出电影的封面
+$vimg='#<img src="(.*?)">#';//取出电影的封面
 $bflist='#<a data-daochu(.*?) href="(.*?)" class="js-site-btn btn btn-play"></a>#';//取电影播放地址
 $array = array();
 //电影的信息加入数组 开始

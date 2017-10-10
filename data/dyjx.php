@@ -1,7 +1,7 @@
 <?php
 //以下代码为PHP核心代码 如若不明 请勿修改
 error_reporting(0);
-header('Content-type:text/html;charset=utf-8');
+// header('Content-type:text/html;charset=utf-8');function DeleteHtml($str) {     $str = trim($str); //清除字符串两边的空格    // $str = strip_tags($str,""); //利用php自带的函数清除html格式    $str = preg_replace("/\t/","",$str); //使用正则表达式替换内容，如：空格，换行，并将替换为空。    $str = preg_replace("/\r\n/","",$str);     $str = preg_replace("/\r/","",$str);     $str = preg_replace("/\n/","",$str);     $str = preg_replace("/ /","",$str);    $str = preg_replace("/  /","",$str);  //匹配html中的空格    return trim($str); //返回字符串}
 
 include './inc/config.php';
 $page=$_GET['page'];
@@ -10,7 +10,7 @@ $page2=$_GET['page']-1;
 $pageurl = $host.'/?page='.$page1;
 $pageurl1 = $host.'/?page='.$page2;
 $info=file_get_contents('http://www.360kan.com/dianying/list.php?rank=rankhot&cat=all&area=all&act=all&year=all&pageno='.$page1);
-//print_r($info);
+//var_dump($info);// $info = DeleteHtml($info); // print_r($info);exit;
 define('360', 'www.360kan.com');//域名
 $yuming="http://www.360kan.com";
 $vname='#<span class="s1">(.*?)</span>#';//取出电影的名字
@@ -18,9 +18,7 @@ $fname='#<span class="s2">(.*?)</span>#';//取出电影的评分
 $nname='#<span class="hint">(.*?)</span>#';//取出电影的年份
 $vlist='#<a class="js-tongjic" href="(.*?)">#';//取出电影的详情列表
 $vstar='# <p class="star">(.*?)</p>#';//取出电影的主演
-$vimg='#<div class="cover g-playicon">
-                                <img src="(.*?)">
-#';
+$vimg='#<img src="(.*?)">#';
 $bflist='#<a data-daochu(.*?) href="(.*?)" class="js-site-btn btn btn-play"></a>#';
 $array = array();
 
@@ -29,7 +27,7 @@ preg_match_all($vlist, $info,$listarr);
 preg_match_all($vstar, $info,$stararr);
 preg_match_all($vimg, $info,$imgarr);
 preg_match_all($fname, $info,$fnamearr);
-preg_match_all($nname, $info,$nnamearr);
+preg_match_all($nname, $info,$nnamearr);//unset($imgarr[0]);//var_dump($imgarr);
 foreach ($namearr[1] as $key => $value)
 {
  
@@ -39,7 +37,7 @@ foreach ($namearr[1] as $key => $value)
     $guq=$listarr[1][$key];
     $_GET['id']=$gul;
 
-    $zimg=$imgarr[1][$key];//取出图片链接
+    $zimg=$imgarr[1][$key + 1];//取出图片链接
     $zname=$namearr[1][$key];//取出影片名字
     $fname=$fnamearr[1][$key];//取出影片评分
 	$nname=$nnamearr[1][$key];//取出影片评分
